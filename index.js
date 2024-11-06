@@ -112,7 +112,7 @@ app.delete('/task/:id', (req, res) => {
         try {
             //let data = await Todo.deleteMany({todoName:"Learn how to bake"})
             let data = await Todo.findByIdAndDelete(req.params.id);
-            res.send({message:'deleted', data});
+            res.send({message:'deleted now', data});
             console.log(data)
         } catch (error) {
             res.send(error);
