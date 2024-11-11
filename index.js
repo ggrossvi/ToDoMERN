@@ -10,13 +10,16 @@ app.use(bodyParser.json())
 const Todo = require('./model/Todo');
 const mongoDBAccess = 'mongodb+srv://dabocer237:stUJYnu4RxkAJBpr@project1.8cm3j.mongodb.net/'
 
-
+const cors = require('cors');
+app.use(cors({origin: '*'}));
 //hpttp methods get, post, put, delete
 
 
 app.get('/', (req, res) => {
     res.send('Hello World!');
 });
+
+app.use(bodyParser.urlencoded({extended:false}));
 
 mongoose.connect(mongoDBAccess).then(() => console.log('Connected!'));
 
